@@ -1,25 +1,20 @@
-// indiviual blog post page
-
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { posts } from "../data/posts";
+import Cover from "../components/Cover";
+import { formatPostDate } from "../lib/dates";
 
 export default function Post() {
   const { slug } = useParams();
-
-  // finds matching post object
-  // renders actual mdx content inside a .prose wrapper for typography styling
-  const post = posts.find((post) => post.slug === slug);
+  const post = posts.find((entry) => entry.slug === slug);
 
   if (!post) {
     return (
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="text-3xl font-bold">
-          Post Not Found
-        </h1>
-
-        <p className="mt-4 text-gray-600">
-          Sorry, we couldn't find that blog post.
-        </p>
+      <main className="mx-auto max-w-3xl px-6 py-20">
+        <h1 className="text-3xl font-extrabold">Post not found</h1>
+        <p className="mt-4 text-ink-soft">That story is not in the archive yet.</p>
+        <Link to="/" className="mt-6 inline-block text-accent">
+          Back home →
+        </Link>
       </main>
     );
   }
@@ -29,40 +24,23 @@ export default function Post() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       <article>
-        {/* Post Header */}
-        <header>
-          <div className="flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <h1 className="mt-6 text-4xl font-bold tracking-tight">
-            {post.title}
-          </h1>
-
-          <p className="mt-4 text-lg text-gray-600">
-            {post.description}
-          </p>
-
-          <time
-            dateTime={post.date}
-            className="mt-6 block text-sm text-gray-500"
-          >
-            {post.date}
-          </time>
-        </header>
-
-        {/* Divider */}
-        <hr className="my-10" />
-
-        {/* Post Content */}
-        <div className="prose prose-lg max-w-none">
+        <p className="text-[11px] font-medium tracking-[0.14em] text-ink-soft uppercase">
+          {formatPostDate(post.date)}
+          {post.category && (
+            <>
+              <span className="mx-2 text-accent">|</span>
+              {post.category}
+            </>
+          )}
+        </p>
+        <h1 className="mt-4 text-4xl leading-tight font-extrabold">{post.title}</h1>
+        <p className="mt-4 text-lg text-ink-soft">{post.description}</p>
+        <Cover
+          src={post.cover}
+          alt=""
+          className="mt-8 aspect-[16/8] w-full"
+        />
+        <div className="prose prose-lg mt-10 max-w-none prose-headings:font-sans prose-headings:font-bold prose-a:text-accent prose-p:text-ink-soft">
           <PostContent />
         </div>
       </article>

@@ -1,0 +1,181 @@
+---
+
+title: "When AI Tools Have Vulnerabilities: the Langflow Attack"
+
+description: "A look at the critical Langflow vulnerability that allowed attackers to remotely execute code with root privileges."
+date: "2026-07-22"
+category: "Cybersecurity"
+tags:
+  - Cybersecurity
+  - Vulnerabilities
+  - AI
+  - Security
+cover: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
+staffPick: true
+
+---
+
+<p style={{ fontSize: "0.6rem", color: "#888", textAlign: "center" }}>
+  Cover image from Unsplash
+</p>
+
+
+As artificial intelligence continues to become a bigger part of technology, more developers are using tools that make it easier to build AI applications and agents.
+
+But with new technology comes new security risks.
+
+On July 22, 2026, I came across a cybersecurity news story about a critical vulnerability in **Langflow**, a visual framework used to build AI applications and agents. The vulnerability, tracked as **CVE-2026-0770**, was serious enough that the Cybersecurity and Infrastructure Security Agency (CISA) ordered U.S. federal agencies to prioritize patching it.
+
+What caught my attention was that the vulnerability could allow an attacker to execute code remotely without needing to authenticate first.
+
+You can read the original article from BleepingComputer here: [CISA orders urgent action on actively exploited Langflow RCE flaw](https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-langflow-rce-flaw/).
+
+So what exactly happened, and why was this vulnerability considered so dangerous?
+
+## What is Langflow?
+
+Before looking at the vulnerability itself, it helps to understand what Langflow actually is.
+
+Langflow is a visual framework for building applications that use artificial intelligence. Instead of writing everything from scratch, developers can use a visual interface to connect different components together and create AI workflows.
+
+Tools like this can make it easier to experiment with AI systems and build applications.
+
+But whenever a tool becomes part of an application's infrastructure, its security becomes important too.
+
+If an attacker finds a vulnerability in that tool, they may be able to use it as a way into the system running it.
+
+## What was CVE-2026-0770?
+
+The vulnerability discovered in Langflow was tracked as **CVE-2026-0770**.
+
+It was classified as a critical vulnerability because it could allow an unauthenticated attacker to perform **remote code execution**, or RCE.
+
+Remote code execution means that an attacker can cause a computer or server to execute commands of their choosing from somewhere else.
+
+That is a serious problem.
+
+Imagine leaving your front door unlocked, except instead of someone simply walking inside, they could remotely tell your computer what commands to run.
+
+That's essentially why RCE vulnerabilities are treated so seriously.
+
+## Why is root access so dangerous?
+
+The situation becomes even more concerning because successful exploitation of this vulnerability could allow code to run with **root privileges**.
+
+Root is essentially the highest level of access on a Linux system.
+
+A normal user may only be allowed to access certain files or perform certain actions.
+
+A root user, on the other hand, has much more control over the system.
+
+This means that if an attacker can execute commands as root, they may be able to make major changes to the system, access sensitive information, install malicious software, or use the compromised machine as a starting point for additional attacks.
+
+That's what makes the combination of **remote code execution + root privileges** particularly dangerous.
+
+## This wasn't just a theoretical vulnerability
+
+One of the biggest reasons this story caught my attention is that CVE-2026-0770 wasn't simply a vulnerability that researchers discovered and reported.
+
+It was already being exploited.
+
+According to reporting from BleepingComputer, exploitation was observed in the wild as early as **June 27, 2026**. More than 220 exploitation attempts from 64 unique IP addresses were recorded before CISA added the vulnerability to its Known Exploited Vulnerabilities catalog.
+
+Some of the observed activity included attempts to execute commands, perform system reconnaissance, download additional scripts, and access cloud credentials and other sensitive information.
+
+That means attackers weren't just testing whether the vulnerability worked.
+
+They were actively trying to use it.
+
+## Why did CISA get involved?
+
+CISA, or the **Cybersecurity and Infrastructure Security Agency**, maintains a list called the **Known Exploited Vulnerabilities catalog**.
+
+The catalog contains vulnerabilities that are known to have been exploited by attackers.
+
+When a vulnerability is added to this list, it signals that organizations should take the issue seriously and prioritize remediation.
+
+On July 22, CISA added CVE-2026-0770 to the catalog and directed U.S. federal civilian agencies to secure affected systems by the required deadline.
+
+The urgency makes sense when a vulnerability is both **critical and actively exploited**.
+
+Waiting to patch gives attackers more time to find vulnerable systems.
+
+## What can organizations do?
+
+The most obvious step is to patch vulnerable versions of Langflow.
+
+But cybersecurity isn't always as simple as installing an update and moving on.
+
+Organizations should also think about whether their systems were already exposed before the vulnerability was patched.
+
+If attackers were exploiting the vulnerability before an organization updated its systems, there could already be signs of compromise.
+
+Security teams may need to:
+
+* Check logs for suspicious activity
+* Look for unexpected commands or processes
+* Review network activity
+* Investigate unusual access to credentials
+* Rotate credentials that may have been exposed
+* Restrict unnecessary access to vulnerable services
+* Keep software and dependencies updated
+
+This is one reason cybersecurity teams need to think about both **prevention and detection**.
+
+Patching prevents future exploitation, but it doesn't automatically undo something an attacker may have already done.
+
+## What does this have to do with AI?
+
+This story is especially interesting because Langflow is connected to the growing AI ecosystem.
+
+AI applications are being built with increasingly complex combinations of frameworks, APIs, models, databases, cloud services, and third-party tools.
+
+Every additional component introduces another potential attack surface.
+
+AI security therefore isn't just about whether an AI model gives a harmful answer.
+
+It is also about securing the infrastructure that AI applications depend on.
+
+A vulnerability in an AI development tool could potentially give an attacker access to the underlying system running that application.
+
+As AI becomes more common, I think this is something that will become increasingly important to understand.
+
+## What I learned from this
+
+One thing I've taken away from this story is that new technology doesn't automatically mean secure technology.
+
+Langflow is designed to make building AI applications easier, but like any other piece of software, it can contain vulnerabilities.
+
+It also reminded me why vulnerability management is such an important part of cybersecurity.
+
+A vulnerability might seem like a technical issue that only developers need to worry about, but once attackers start exploiting it, it can become a much bigger security problem.
+
+The Langflow vulnerability is a good example of how quickly that can happen.
+
+A vulnerability is discovered.
+
+Attackers begin exploiting it.
+
+Security researchers investigate it.
+
+CISA adds it to the Known Exploited Vulnerabilities catalog.
+
+Organizations rush to patch their systems.
+
+All of this can happen very quickly.
+
+## AI security is becoming cybersecurity
+
+As I continue learning about cybersecurity, I'm realizing that the field constantly changes alongside technology.
+
+AI is a great example of this.
+
+We're seeing AI become part of software development, cloud services, cybersecurity tools, and everyday applications.
+
+That means cybersecurity professionals need to understand not only how these technologies work, but also how they can fail.
+
+The Langflow vulnerability is a reminder that even the tools used to build the next generation of technology need to be secured.
+
+As AI continues to grow, I think we'll be seeing a lot more stories where **AI and cybersecurity overlap**.
+
+And that's definitely an area I want to keep learning about.

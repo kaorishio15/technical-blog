@@ -2,26 +2,20 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <header className="border-b">
-      <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        <Link to="/" className="font-bold">
-          My Technical Blog
-        </Link>
-
-        <nav className="flex gap-6 text-sm">
-          <Link to="/">Home</Link>
-
-          <Link to="/about">About</Link>
-
-          <a
-            href="https://your-portfolio-domain.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Portfolio
-          </a>
+    <footer className="mt-auto border-t border-black/5 bg-cream-deep">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-6 py-10 text-center">
+        <p className="text-sm font-extrabold tracking-[0.2em] uppercase">
+          The Journal
+        </p>
+        <nav className="flex gap-6 text-[11px] font-semibold tracking-[0.16em] uppercase">
+          <Link to="/" className="hover:text-accent">
+            Home
+          </Link>
+          <Link to="/about" className="hover:text-accent">
+            About
+          </Link>
         </nav>
       </div>
-    </header>
+    </footer>
   );
 }
