@@ -32,7 +32,7 @@ function SocialIcon({
 }) {
   return (
     <a
-      href="https://your-portfolio-domain.com"
+      href="https://kaori-portfolio-website.vercel.app/"
       target="_blank"
       rel="noreferrer"
       aria-label={label}

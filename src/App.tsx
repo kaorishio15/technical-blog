@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Post from "./pages/Post";
 import About from "./pages/About";
 import HowItWorks from "./pages/HowItWorks";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </Routes>
 
         <Footer />
+        <ScrollToTopButton />
       </div>
     </BrowserRouter>
   );
